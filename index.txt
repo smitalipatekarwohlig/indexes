@@ -1,0 +1,32 @@
+- MongoDB uses indexing in order to make the query processing more efficient. If there is no indexing, then the mongoDB must scan every document in the collection and retrieve only those documents that match the query.
+- Indexes improves mongodb query execution
+- Without indexes whole collection must be scan (COLLSCAN)
+- Index sorted field values
+- If index exists, then mongoDB only perform indexScan(IXSCAN)
+
+Why use Index?
+- For faster query
+- It arrange the data in sorted order
+- All new data must find its appropriate place in sorted order
+
+- {_id: 1} is the default index in each mongoDB collection 
+- Name of this index is _id_
+- Default _id is unique
+
+getIndexes()
+- Returns current indexes for certain collection
+db.<collectionName>.getIndexes()
+
+createIndex()
+- used to create the index on the field 
+- 1 is for ascending order and -1 is for descending order
+- We can also pass multiple fields
+db.<collectionName>.createIndex({KEY : 1}) 
+
+dropIndex()
+- used to drop the index of the field 
+db.<collectionName>.dropIndex({KEY : 1})
+
+dropIndexes()
+- used to drop the index of the multiple fields 
+db.<collectionName>.dropIndexes({KEY : 1, "title" : -1})
